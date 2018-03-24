@@ -1,14 +1,14 @@
 # Converter from ING csv format to YNAB csv format
 
 ## ING csv format
-'''
+```
 Data,,,Detalii_tranzactie,,Debit,Credit
 23 martie 2018,,,Cumparare POS,,"xx,xx",
 ,,,Nr. card: xxxx xxxx xxxx xxxx,,,
 ,,,Terminal: Numele companiei,,,
 24 martie 2018,,,Cumparare POS,,"xx,xx",
 ,,,Terminal: Numele companiei,,,
-'''
+```
 
 ## Ynab CSV format
 What does YNAB look for in a CSV file?

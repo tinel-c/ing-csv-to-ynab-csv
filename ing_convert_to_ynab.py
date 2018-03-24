@@ -36,6 +36,7 @@
 
 
 import csv
+import glob
 
 
 
@@ -43,38 +44,40 @@ data = ""
 detalii_tranzactie = ""
 debit = ""
 credit = ""
-with open('ynab_format.csv', 'w') as csvfile:
-        fieldnames = ['Date','Payee','Category','Memo','Outflow','Inflow']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        
-        with open('test.csv') as csvfile:
-                reader = csv.DictReader(csvfile)
-                for row in reader:        
-                        if row['Data']:
-                                if data:
-                                        print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
-                                        writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
-                                print '----->'+row['Data']+','+row['Detalii tranzactie']+',"'+row['Debit']+'","'+row['Credit']+'"'
-                                data = row['Data']
-                                data = data.replace(" ianuarie ","/01/")
-                                data = data.replace(" februarie ","/02/")
-                                data = data.replace(" martie ","/03/")
-                                data = data.replace(" aprilie ","/04/");
-                                data = data.replace(" mai ","/05/");
-                                data = data.replace(" iunie ","/06/");
-                                data = data.replace(" iulie ","/07/");
-                                data = data.replace(" august ","/08/");
-                                data = data.replace(" septembrie ","/09/");
-                                data = data.replace(" octombrie ","/10/");
-                                data = data.replace(" noiembrie ","/11/");
-                                data = data.replace(" decembrie ","/12/");
-                                detalii_tranzactie = row['Detalii tranzactie']
-                                debit = row['Debit'] 
-                                credit = row['Credit']
-                        else:
-                                detalii_tranzactie = detalii_tranzactie + ' ' + row['Detalii tranzactie']
-                print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
-                writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
+for filename in glob.glob('*.csv'):
+        witeToFilename = "ynab_"+filename
+        with open(witeToFilename, 'w') as csvfile:
+                fieldnames = ['Date','Payee','Category','Memo','Outflow','Inflow']
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+                
+                with open(filename) as csvfile:
+                        reader = csv.DictReader(csvfile)
+                        for row in reader:        
+                                if row['Data']:
+                                        if data:
+                                                print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
+                                                writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
+                                        print '----->'+row['Data']+','+row['Detalii tranzactie']+',"'+row['Debit']+'","'+row['Credit']+'"'
+                                        data = row['Data']
+                                        data = data.replace(" ianuarie ","/01/")
+                                        data = data.replace(" februarie ","/02/")
+                                        data = data.replace(" martie ","/03/")
+                                        data = data.replace(" aprilie ","/04/");
+                                        data = data.replace(" mai ","/05/");
+                                        data = data.replace(" iunie ","/06/");
+                                        data = data.replace(" iulie ","/07/");
+                                        data = data.replace(" august ","/08/");
+                                        data = data.replace(" septembrie ","/09/");
+                                        data = data.replace(" octombrie ","/10/");
+                                        data = data.replace(" noiembrie ","/11/");
+                                        data = data.replace(" decembrie ","/12/");
+                                        detalii_tranzactie = row['Detalii tranzactie']
+                                        debit = row['Debit'] 
+                                        credit = row['Credit']
+                                else:
+                                        detalii_tranzactie = detalii_tranzactie + ' ' + row['Detalii tranzactie']
+                        print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
+                        writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
                    
                         

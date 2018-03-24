@@ -1,5 +1,12 @@
 # Converter from ING csv format to YNAB csv format
 
+# How to use
+
+1. Install python on your PC.
+2. Export transactions to a csv file
+3. Execute the py script in the same folder with the csv file export
+4. Import the ynab_<name>.csv file to YNAB 4
+
 ## ING csv format
 ```
 Data,,,Detalii_tranzactie,,Debit,Credit

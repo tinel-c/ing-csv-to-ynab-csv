@@ -10,7 +10,7 @@ Data,,,Detalii_tranzactie,,Debit,Credit
 ,,,Terminal: Numele companiei,,,
 ```
 
-## Ynab CSV format
+## YNAB csv format
 What does YNAB look for in a CSV file?
 In order to import a CSV file into YNAB it must follow a specific structure. The 3 line example below outlines exactly how a file might look if it contained only 2 transactions.
 

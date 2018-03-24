@@ -55,13 +55,25 @@ with open('ynab_format.csv', 'w') as csvfile:
                                 if data:
                                         print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
                                         writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
-                                print '----->'+row['Data']+','+row['Detalii_tranzactie']+',"'+row['Debit']+'","'+row['Credit']+'"'
+                                print '----->'+row['Data']+','+row['Detalii tranzactie']+',"'+row['Debit']+'","'+row['Credit']+'"'
                                 data = row['Data']
-                                detalii_tranzactie = row['Detalii_tranzactie']
+                                data = data.replace(" ianuarie ","/01/")
+                                data = data.replace(" februarie ","/02/")
+                                data = data.replace(" martie ","/03/")
+                                data = data.replace(" aprilie ","/04/");
+                                data = data.replace(" mai ","/05/");
+                                data = data.replace(" iunie ","/06/");
+                                data = data.replace(" iulie ","/07/");
+                                data = data.replace(" august ","/08/");
+                                data = data.replace(" septembrie ","/09/");
+                                data = data.replace(" octombrie ","/10/");
+                                data = data.replace(" noiembrie ","/11/");
+                                data = data.replace(" decembrie ","/12/");
+                                detalii_tranzactie = row['Detalii tranzactie']
                                 debit = row['Debit'] 
                                 credit = row['Credit']
                         else:
-                                detalii_tranzactie = detalii_tranzactie + ' ' + row['Detalii_tranzactie']
+                                detalii_tranzactie = detalii_tranzactie + ' ' + row['Detalii tranzactie']
                 print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
                 writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
                    

@@ -38,37 +38,37 @@
 import csv
 import glob
 
-mappingCategory = [ ('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),
-                    ('LIDL', 'Everyday Expenses: Mancare'),
-                    ('EON GAZ FURNZARE', 'Monthly Bills: Gaz'),
-                    ('WWW.MYLINE-EON.RO', 'Monthly Bills: Gaz'),
-                    ('DEDEMAN', 'Everyday Expenses: Household Goods'),
-                    ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),
-                    ('DM FIL', 'Everyday Expenses: Household Goods'),
-                    ('MOL', 'Everyday Expenses: Benzina/Motorina'),
-                    ('IASI ETAX', 'Yearly bills: Impozite'),
-                    ('ING Gold', 'Yearly bills: Impozite'),
-                    ('digicare.rcs-rds.ro', 'Monthly Bills: RCS/RDS'),
-                    ('Netflix', 'Monthly Bills: Netflix'),
-                    ('ARCADIA', 'Everyday Expenses: Medical'),
-                    ('ARTIMA', 'Everyday Expenses: Medical'),
-                    ('SMILE DENT SRL', 'Everyday Expenses: Medical'),
-                    ('FITERMAN', 'Everyday Expenses: Medical'),
-                    ('SENSIBLU', 'Everyday Expenses: Medical'),
-                    ('KOTON', 'Everyday Expenses: Haine'),
-                    ('TAKKO', 'Everyday Expenses: Haine'),
-                    ('ZARA', 'Everyday Expenses: Haine'),
-                    ('ZARA', 'Everyday Expenses: Haine'),
-                    ('H&M', 'Everyday Expenses: Haine'),
-                    ('INA IULIUS MALL', 'Everyday Expenses: Haine'),
-                    ('HBOEUROPESRO', 'Monthly Bills: HBOgo'),
-                    ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),
-                    ('KFC', 'Everyday Expenses: Restaurante'),
-                    ('LAVA&CUCE', 'Everyday Expenses: Curatenie & Ironing'),
-                    ('Rata Credit In contul: 9999', 'Debt: Credit apartament Buni'),
-                    ('Prima asigurare ING Credit', 'Debt: Credit apartament Buni'),
-                    ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel'),
-                    ('GLOBEHOSTIN', 'Yearly bills: Site-uri')]
+mappingCategory = [ ('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),            ## Carrefour
+                    ('LIDL', 'Everyday Expenses: Mancare'),                         ## LIDL
+                    ('EON GAZ FURNZARE', 'Monthly Bills: Gaz'),                     ## EON GAZ
+                    ('WWW.MYLINE-EON.RO', 'Monthly Bills: Gaz'),                    ## Eon myline payment gaz / electricitate
+                    ('DEDEMAN', 'Everyday Expenses: Household Goods'),              ## Dedeman
+                    ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),           ## EMAG
+                    ('DM FIL', 'Everyday Expenses: Household Goods'),               ## DM
+                    ('MOL', 'Everyday Expenses: Benzina/Motorina'),                 ## Benzinaria MOL
+                    ('IASI ETAX', 'Yearly bills: Impozite'),                        ## Taxe si impozite Iasi
+                    ('ING Gold', 'Yearly bills: Impozite'),                         ## ING Card
+                    ('digicare.rcs-rds.ro', 'Monthly Bills: RCS/RDS'),              ## RCS/RDS online pay
+                    ('Netflix', 'Monthly Bills: Netflix'),                          ## Netflix
+                    ('ARCADIA', 'Everyday Expenses: Medical'),                      ## Arcadia Hospital
+                    ('ARTIMA', 'Everyday Expenses: Medical'),                       ## Farmacie ARTIMA
+                    ('SMILE DENT SRL', 'Everyday Expenses: Medical'),               ## Dentist
+                    ('FITERMAN', 'Everyday Expenses: Medical'),                     ## Farmacie Fitterman
+                    ('SENSIBLU', 'Everyday Expenses: Medical'),                     ## Farmacie Sensiblu
+                    ('KOTON', 'Everyday Expenses: Haine'),                          ## KOTON
+                    ('TAKKO', 'Everyday Expenses: Haine'),                          ## TAKKO
+                    ('ZARA', 'Everyday Expenses: Haine'),                           ## ZARA
+                    ('H&M', 'Everyday Expenses: Haine'),                            ## H&M
+                    ('INA IULIUS MALL', 'Everyday Expenses: Haine'),                ## INA Iulius Mall
+                    ('HBOEUROPESRO', 'Monthly Bills: HBOgo'),                       ## HBO GO
+                    ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),     ## Montecatini
+                    ('PREMIER RESTAURANTS', 'Everyday Expenses: Restaurante'),      ## McDonalds
+                    ('KFC', 'Everyday Expenses: Restaurante'),                      ## KFC
+                    ('LAVA&CUCE', 'Everyday Expenses: Curatenie & Ironing'),        ## Curatatorie Iulius
+                    ('Rata Credit In contul: 9999', 'Debt: Credit apartament Buni'),## ING Credit
+                    ('Prima asigurare ING Credit', 'Debt: Credit apartament Buni'), ## Asigurare ING Credit
+                    ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel'),             ## Orange Romania
+                    ('GLOBEHOSTIN', 'Yearly bills: Site-uri')]                      ## edomenii.ro
 data = ""
 detalii_tranzactie = ""
 debit = ""
@@ -83,18 +83,20 @@ def findCategory( memoString ):
                         return mappedCategory
         return ""
 
-
+## convert each csv file in the folder
 for filename in glob.glob('*.csv'):
         witeToFilename = "ynab_"+filename
+        ## create a file by appending ynab_ in front of the opened filename
         with open(witeToFilename, 'wb') as csvfile:
                 fieldnames = ['Date','Payee','Category','Memo','Outflow','Inflow']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 writer.writeheader()
-                
+                ## process the file opened
                 with open(filename) as csvfile:
                         reader = csv.DictReader(csvfile)
                         for row in reader:        
                                 if row['Data']:
+                                        ## reached the end of a segment. start of a segment is marked by populated date. end of a segmend considered when another segment begins
                                         if data:
                                                 print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
                                                 ## try to identify category
@@ -121,6 +123,7 @@ for filename in glob.glob('*.csv'):
                                         credit = row['Credit']
                                 else:
                                         detalii_tranzactie = detalii_tranzactie + ' ' + row['Detalii tranzactie']
+                        # catch also the last entry inside the import file
                         print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
                         ## try to identify category
                         category = findCategory(detalii_tranzactie)

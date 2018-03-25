@@ -1,11 +1,17 @@
 # Converter from ING csv (homebank.ro) format to YNAB csv format
 
-# How to use
+## How to use
 
-1. Install python on your PC.
-2. Export transactions to a csv file
-3. Execute the py script in the same folder with the csv file export
-4. Import the ynab_<name>.csv file to YNAB 4
+Before use:
+* open ing_convert_to_ynab.py with your favorite editor and edit your usual store and categories.
+* Install python on your PC.
+
+Follow the steps each time you want to import
+
+1. Export transactions to a csv file from homebank.ro (-filename-.csv)
+2. Place the py script in the same folder
+3. Execute the py script to output ynab_-filename-.csv
+4. Import the ynab_-filename-.csv file to YNAB 4 with csv import option (ctrl+i)
 
 ## ING csv format
 ```

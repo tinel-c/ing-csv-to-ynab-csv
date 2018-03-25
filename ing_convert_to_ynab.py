@@ -63,8 +63,10 @@ mappingCategory = [ ('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),
                     ('INA IULIUS MALL', 'Everyday Expenses: Haine'),
                     ('HBOEUROPESRO', 'Monthly Bills: HBOgo'),
                     ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),
+                    ('KFC', 'Everyday Expenses: Restaurante'),
                     ('Rata Credit In contul: 9999', 'Debt: Credit apartament Buni'),
-                    ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel')]
+                    ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel'),
+                    ('GLOBEHOSTIN', 'Yearly bills: Site-uri')]
 data = ""
 detalii_tranzactie = ""
 debit = ""

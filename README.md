@@ -1,4 +1,4 @@
-# Converter from ING csv format to YNAB csv format
+# Converter from ING csv (homebank.ro) format to YNAB csv format
 
 # How to use
 

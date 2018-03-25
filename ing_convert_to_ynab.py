@@ -38,12 +38,48 @@
 import csv
 import glob
 
-
-
+mappingCategory = [ ('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),
+                    ('LIDL', 'Everyday Expenses: Mancare'),
+                    ('EON GAZ FURNZARE', 'Monthly Bills: Gaz'),
+                    ('WWW.MYLINE-EON.RO', 'Monthly Bills: Gaz'),
+                    ('DEDEMAN', 'Everyday Expenses: Household Goods'),
+                    ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),
+                    ('DM FIL', 'Everyday Expenses: Household Goods'),
+                    ('MOL', 'Everyday Expenses: Benzina/Motorina'),
+                    ('IASI ETAX', 'Yearly bills: Impozite'),
+                    ('ING Gold', 'Yearly bills: Impozite'),
+                    ('digicare.rcs-rds.ro', 'Monthly Bills: RCS/RDS'),
+                    ('Netflix', 'Monthly Bills: Netflix'),
+                    ('ARCADIA', 'Everyday Expenses: Medical'),
+                    ('ARTIMA', 'Everyday Expenses: Medical'),
+                    ('SMILE DENT SRL', 'Everyday Expenses: Medical'),
+                    ('FITERMAN', 'Everyday Expenses: Medical'),
+                    ('SENSIBLU', 'Everyday Expenses: Medical'),
+                    ('KOTON', 'Everyday Expenses: Haine'),
+                    ('TAKKO', 'Everyday Expenses: Haine'),
+                    ('ZARA', 'Everyday Expenses: Haine'),
+                    ('ZARA', 'Everyday Expenses: Haine'),
+                    ('H&M', 'Everyday Expenses: Haine'),
+                    ('INA IULIUS MALL', 'Everyday Expenses: Haine'),
+                    ('HBOEUROPESRO', 'Monthly Bills: HBOgo'),
+                    ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),
+                    ('Rata Credit In contul: 9999', 'Debt: Credit apartament Buni'),
+                    ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel')]
 data = ""
 detalii_tranzactie = ""
 debit = ""
 credit = ""
+category = ""
+
+## map category to usual stores
+## eg. Lidl, Everyday Expenses: Mancare
+def findCategory( memoString ):
+        for stringMapping, mappedCategory in mappingCategory:
+                if memoString.find(stringMapping)>0:
+                        return mappedCategory
+        return ""
+
+
 for filename in glob.glob('*.csv'):
         witeToFilename = "ynab_"+filename
         with open(witeToFilename, 'w') as csvfile:
@@ -57,9 +93,13 @@ for filename in glob.glob('*.csv'):
                                 if row['Data']:
                                         if data:
                                                 print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
-                                                writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
+                                                ## try to identify category
+                                                category = findCategory(detalii_tranzactie)
+                                                ## write the entry in YNAB csv
+                                                writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit, 'Category' : category})
                                         print '----->'+row['Data']+','+row['Detalii tranzactie']+',"'+row['Debit']+'","'+row['Credit']+'"'
                                         data = row['Data']
+                                        ## Replace the romanian month by the number of the month
                                         data = data.replace(" ianuarie ","/01/")
                                         data = data.replace(" februarie ","/02/")
                                         data = data.replace(" martie ","/03/")
@@ -78,6 +118,8 @@ for filename in glob.glob('*.csv'):
                                 else:
                                         detalii_tranzactie = detalii_tranzactie + ' ' + row['Detalii tranzactie']
                         print 'output: '+data+','+detalii_tranzactie+',"'+debit+'","'+credit+'"'
-                        writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit})
-                   
+                        ## try to identify category
+                        category = findCategory(detalii_tranzactie)
+                        ## write the entry in YNAB csv
+                        writer.writerow({'Date': data, 'Memo': detalii_tranzactie, 'Outflow': debit , 'Inflow': credit, 'Category' : category})                   
                         

@@ -2,11 +2,21 @@
 
 ## How to use
 
+### Executing the windows application
+Get the latest release from https://github.com/tinel-c/ing-csv-to-ynab-csv/releases
+
+Follow the steps each time you want to import:
+
+1. Place the csv file in the same folder with ing_covert_to_ynab.exe
+2. Execute ing_convert_to_ynab.exe by double clicking on it
+3. Import to YNAB the resulted csv file ynab_.csv
+
+### Executing python code
 Before use:
 * open ing_convert_to_ynab.py with your favorite editor and edit your usual store and categories.
 * Install python on your PC.
 
-Follow the steps each time you want to import
+Follow the steps each time you want to import:
 
 1. Export transactions to a csv file from homebank.ro (-filename-.csv)
 2. Place the py script in the same folder

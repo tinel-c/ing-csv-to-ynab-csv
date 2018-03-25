@@ -64,7 +64,9 @@ mappingCategory = [ ('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),
                     ('HBOEUROPESRO', 'Monthly Bills: HBOgo'),
                     ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),
                     ('KFC', 'Everyday Expenses: Restaurante'),
+                    ('LAVA&CUCE', 'Everyday Expenses: Curatenie & Ironing'),
                     ('Rata Credit In contul: 9999', 'Debt: Credit apartament Buni'),
+                    ('Prima asigurare ING Credit', 'Debt: Credit apartament Buni'),
                     ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel'),
                     ('GLOBEHOSTIN', 'Yearly bills: Site-uri')]
 data = ""

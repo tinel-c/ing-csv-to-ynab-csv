@@ -84,7 +84,7 @@ def findCategory( memoString ):
 
 for filename in glob.glob('*.csv'):
         witeToFilename = "ynab_"+filename
-        with open(witeToFilename, 'w') as csvfile:
+        with open(witeToFilename, 'wb') as csvfile:
                 fieldnames = ['Date','Payee','Category','Memo','Outflow','Inflow']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 writer.writeheader()

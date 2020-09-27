@@ -1,20 +1,32 @@
-﻿# ING csv to YNAB csv converter
+# ING csv to YNAB csv converter
 
 import csv
 import glob
 
-mappingCategory = [('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),              # Carrefour
-                   ('LIDL', 'Everyday Expenses: Mancare'),                           # LIDL
-                   ('EON GAZ FURNZARE', 'Monthly Bills: Gaz'),                       # EON GAZ
-                   ('WWW.MYLINE-EON.RO', 'Monthly Bills: Gaz'),                      # Eon myline payment
-                   ('DEDEMAN', 'Everyday Expenses: Household Goods'),                # Dedeman
+mappingCategory = [('CARREFOUR', 'Everyday Expenses: Groceries'),                    # Carrefour
+                   ('MPN LOGISTICS', 'Everyday Expenses: Groceries'),                # Carrefour
+                   ('Zig Delivero', 'Everyday Expenses: Groceries'),                 # Carrefour
+                   ('LIDL', 'Everyday Expenses: Groceries'),                         # LIDL
+                   ('PICO MAG DEP  RO', 'Everyday Expenses: Groceries'),             # PiCo magazin
+                   ('MARELBO', 'Everyday Expenses: Haine'),                          # Marelbo
+                   ('MY EVENTS SRL RO', 'Everyday Expenses: Office food'),           # Bistro Servici
+                   ('SALAD BOX', 'Everyday Expenses: Office food'),                  # Bistro Servici
+                   ('MADO', 'Everyday Expenses: Office food'),                       # Bistro Servici
+                   ('OSPATUL ZEILOR', 'Everyday Expenses: Office food'),             # Bistro Servici
+                   ('SIMIGERIA PETRU', 'Everyday Expenses: Office food'),            # Bistro Servici
+                   ('EON GAZ FURNZARE', 'Monthly Bills: EON'),                       # EON Natural Gaz
+                   ('WWW.MYLINE-EON.RO', 'Monthly Bills: EON'),                      # Eon myline payment
                    ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),             # EMAG
                    ('DM FIL', 'Everyday Expenses: Household Goods'),                 # DM
+                   ('ALTEX', 'Everyday Expenses: Household Goods'),                  # Altex
                    ('MOL', 'Everyday Expenses: Benzina/Motorina'),                   # Benzinaria MOL
                    ('IASI ETAX', 'Yearly bills: Impozite'),                          # Taxe si impozite Iasi
                    ('ING Gold', 'Yearly bills: Impozite'),                           # ING Card
-                   ('digicare.rcs-rds.ro', 'Monthly Bills: RCS/RDS'),                # RCS/RDS online pay
-                   ('Netflix', 'Monthly Bills: Netflix'),                            # Netflix
+                   ('RCS AND RDS SA', 'Monthly Bills: RCS/RDS'),                     # RCS/RDS online pay
+                   ('SCOALA PRIMARA EUROED DEP', 'Monthly Bills: School'),           # Euroed
+                   ('NETFLIX', 'Monthly Bills: Netflix'),                            # Netflix
+                   ('Google Payment', 'Monthly Bills: Google Play'),                 # Google Play
+                   ('BANGGOOD', 'Monthly Bills: Atelier'),                           # Bangood
                    ('ARCADIA', 'Everyday Expenses: Medical'),                        # Arcadia Hospital
                    ('ARTIMA', 'Everyday Expenses: Medical'),                         # Farmacie ARTIMA
                    ('HELP NET FARMA', 'Everyday Expenses: Medical'),                 # Farmacie Helpnet
@@ -25,16 +37,30 @@ mappingCategory = [('CARREFOUR ROMANIA', 'Everyday Expenses: Mancare'),         
                    ('TAKKO', 'Everyday Expenses: Haine'),                            # TAKKO
                    ('ZARA', 'Everyday Expenses: Haine'),                             # ZARA
                    ('H&M', 'Everyday Expenses: Haine'),                              # H&M
-                   ('INA IULIUS MALL', 'Everyday Expenses: Haine'),                  # INA Iulius Mall
-                   ('HBOEUROPESRO', 'Monthly Bills: HBOgo'),                         # HBO GO
+                   ('INA IULIUS MALL', 'Everyday Expenses: Haine'),                  # INA Iulius Mall 
+                   ('SIA SOF', 'Everyday Expenses: Haine'),                          # SIA SOF
+                   ('HBO', 'Monthly Bills: HBOgo'),                                  # HBO GO
                    ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),       # Montecatini
                    ('PREMIER RESTAURANTS', 'Everyday Expenses: Restaurante'),        # McDonalds
+                   ('MOO CAFE PALAS DEP', 'Everyday Expenses: Restaurante'),         # Moo
+                   ('MAMMA MIA', 'Everyday Expenses: Restaurante'),                  # Mama mia
+                   ('TUFFLI DEP RO', 'Everyday Expenses: Restaurante'),              # Tuffli
                    ('KFC', 'Everyday Expenses: Restaurante'),                        # KFC
                    ('LAVA&CUCE', 'Everyday Expenses: Curatenie & Ironing'),          # Curatatorie Iulius
+                   ('BLISS BEAUTY', 'Everyday Expenses: Curatenie & Ironing'),       # Bliss
                    ('Rata Credit In contul: 9999', 'Debt: Credit apartament Buni'),  # ING Credit
                    ('Prima asigurare ING Credit', 'Debt: Credit apartament Buni'),   # Asigurare ING Credit
                    ('ORANGE ROMANIA', 'Monthly Bills: Telefon Tinel'),               # Orange Romania
-                   ('GLOBEHOSTIN', 'Yearly bills: Site-uri')]                        # edomenii.ro
+                   ('LEROY MERLIN ROMANIA SRL', 'Rainy Day Funds: Home Maintenance'),# Home Maintenance
+                   ('DEDEMAN', 'Rainy Day Funds: Home Maintenance'),                 # Home Maintenance
+                   ('Support Auto', 'Rainy Day Funds: Car Repairs'),                 # Home Maintenance
+                   ('GLOBEHOSTIN', 'Yearly bills: Site-uri'),                        # edomenii.ro
+                   ('MUNICIPIUL IASI SNEP  RO', 'Yearly bills: Impozite'),           # Impozit apartament
+                   ('ETAX', 'Yearly bills: Impozite'),                               # Impozit apartament ETAX
+                   ('Retragere numerar', 'Everyday Expenses: Spending Money'),       # Extrageri
+                   ('Transfer Home','Rainy Day Funds: Emergency Fund'),              # Saving
+                   ('Realimentare Extra', 'ignore'),                                 # ignore transaction
+                   ('transferata din linia de credit', 'ignore')]                    # ignore transaction
 
 detalii_tranzactie = ""
 debit = ""
@@ -42,12 +68,12 @@ credit = ""
 category = ""
 
 # map category to usual stores
-# eg. Lidl, Everyday Expenses: Mancare
+# eg. Lidl, Everyday Expenses: Groceries
 
 
 def findCategory(memoString):
     for stringMapping, mappedCategory in mappingCategory:
-        if memoString.find(stringMapping) > 0:
+        if memoString.find(stringMapping) >= 0:
             return mappedCategory
     return ""
 
@@ -72,12 +98,14 @@ for filename in glob.glob('*.csv'):
                         print 'output: ' + data + ',' + detalii_tranzactie + ',"' + debit + '","' + credit + '"'
                         # try to identify category
                         category = findCategory(detalii_tranzactie)
-                        # write the entry in YNAB csv
-                        writer.writerow({'Date': data,
-                                         'Memo': detalii_tranzactie,
-                                         'Outflow': debit,
-                                         'Inflow': credit,
-                                         'Category': category})
+                        # if category is ignore do not write something
+                        if category.find('ignore') < 0:
+                            # write the entry in YNAB csv
+                            writer.writerow({'Date': data,
+                                             'Memo': detalii_tranzactie,
+                                             'Outflow': debit,
+                                             'Inflow': credit,
+                                             'Category': category})
                     printData = '----->' + row['Data'] + ','
                     printData += row['Detalii tranzactie'] + ',"'
                     printData += row['Debit'] + '","' + row['Credit'] + '"'
@@ -107,8 +135,11 @@ for filename in glob.glob('*.csv'):
             # try to identify category
             category = findCategory(detalii_tranzactie)
             # write the entry in YNAB csv
-            writer.writerow({'Date': data,
-                             'Memo': detalii_tranzactie,
-                             'Outflow': debit,
-                             'Inflow': credit,
-                             'Category': category})
+            # if category is ignore do not write something
+            if category.find('ignore') < 0:
+                #write entry to file
+                writer.writerow({'Date': data,
+                                 'Memo': detalii_tranzactie,
+                                 'Outflow': debit,
+                                 'Inflow': credit,
+                                 'Category': category})

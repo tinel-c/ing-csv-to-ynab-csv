@@ -59,3 +59,16 @@ MM/DD//YYYY
 ```
 
 Categories will only import if the category already exists in your budget file with the exact same name. Otherwise the categories will be ignored when importing the file.  Also, make sure that the categories are listed with the master category, followed by a colon, then the sub category.  For example Everyday Expenses: Groceries
+
+# Release
+
+Converter for pyton 3 to exe:
+
+```
+$ pip install auto-py-to-exe
+```
+Then to run it, execute the following in the terminal:
+
+```
+$ auto-py-to-exe
+```

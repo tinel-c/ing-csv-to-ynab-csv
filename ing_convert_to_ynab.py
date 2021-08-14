@@ -3,7 +3,34 @@
 import csv
 import glob
 
-mappingCategory = [('CARREFOUR', 'Everyday Expenses: Groceries'),                    # Carrefour
+mappingCategory = [
+                   #Monthly Bills
+                   #Monthly Bills: Kindergarden&School
+                   ('Scoala Primara EuroEd','Monthly Bills: Kindergarden&School'),   # KinderGarden and School - Euroed
+                   ('SCOALA PRIMARA EUROED DEP', 'Monthly Bills: School'),           # Euroed
+                   ('NETFLIX', 'Monthly Bills: Netflix'),                            # Netflix
+                   #Monthly Bills: EON
+                   ('EON GAZ FURNZARE', 'Monthly Bills: EON'),                       # EON Natural Gaz
+                   ('WWW.MYLINE-EON.RO', 'Monthly Bills: EON'),                      # Eon myline payment
+                   #Monthly Bills: Phone
+                   ('ORANGE', 'Monthly Bills: Phone'),                               # Orange Romania
+                   #Monthly Bills: Maintanance&Water
+                   #Monthly Bills: EON Buni
+                   #Monthly Bills: Buni
+                   #Monthly Bills: Bona
+                   #Monthly Bills: HBOgo
+                   ('HBO', 'Monthly Bills: HBOgo'),                                  # HBO GO
+                   #Monthly Bills: RCS/RDS
+                   ('RCS AND RDS SA', 'Monthly Bills: RCS/RDS'),                     # RCS/RDS online pay
+                   #Monthly Bills: Netflix
+                   #Monthly Bills: Google Play
+                   ('Google Payment', 'Monthly Bills: Google Play'),                 # Google Play
+                   #Monthly Bills: Atelier
+                   ('BANGGOOD', 'Monthly Bills: Atelier'),                           # Bangood        
+
+                   #Everyday Expenses
+                   #Everyday Expenses: Groceries
+                   ('CARREFOUR', 'Everyday Expenses: Groceries'),                    # Carrefour
                    ('MPN LOGISTICS', 'Everyday Expenses: Groceries'),                # Carrefour
                    ('Zig Delivero', 'Everyday Expenses: Groceries'),                 # Carrefour
                    ('ROUMASPORT', 'Everyday Expenses: Groceries'),                   # Carrefour Bringo
@@ -11,35 +38,32 @@ mappingCategory = [('CARREFOUR', 'Everyday Expenses: Groceries'),               
                    ('CRISNIC MARKET', 'Everyday Expenses: Groceries'),               # Pico
                    ('LIDL', 'Everyday Expenses: Groceries'),                         # LIDL
                    ('PICO MAG DEP  RO', 'Everyday Expenses: Groceries'),             # PiCo magazin
-                   ('MARELBO', 'Everyday Expenses: Haine'),                          # Marelbo
+                   #Everyday Expenses: Fuel
+                   ('MOL', 'Everyday Expenses: Fuel'),                               # Benzinaria MOL
+                   #Everyday Expenses: Spending Money Tinel
+                   ('STEAM GAMES', 'Everyday Expenses: Spending Money Tinel'),       # Joace
+                   ('Retragere numerar', 'Everyday Expenses: Spending Money Tinel'),       # Extrageri        
+                   #Everyday Expenses: Spending Money Monica
+                   #Everyday Expenses: Office food
                    ('MY EVENTS SRL', 'Everyday Expenses: Office food'),              # Bistro Servici
                    ('SALAD BOX', 'Everyday Expenses: Office food'),                  # Bistro Servici
                    ('MADO', 'Everyday Expenses: Office food'),                       # Bistro Servici
                    ('OSPATUL ZEILOR', 'Everyday Expenses: Office food'),             # Bistro Servici
                    ('SIMIGERIA PETRU', 'Everyday Expenses: Office food'),            # Bistro Servici
+                   #Everyday Expenses: Restaurants
                    ('Dinah  Aliment', 'Everyday Expenses: Restaurants'),             # Restaurante
                    ('VO CHEF', 'Everyday Expenses: Restaurants'),                    # Restaurante
                    ('CARTOFISSERIE', 'Everyday Expenses: Restaurants'),              # Restaurante
                    ('CANTINA STUDENTEASCA', 'Everyday Expenses: Restaurants'),       # Restaurante
                    ('MESOPOTAMIA', 'Everyday Expenses: Restaurants'),                # Restaurante
-                   ('CORSO', 'Everyday Expenses: Restaurants'),                # Restaurante
-                   ('VARUNA', 'Everyday Expenses: Toys'),                            # Magazin Jucarii
-                   ('EON GAZ FURNZARE', 'Monthly Bills: EON'),                       # EON Natural Gaz
-                   ('WWW.MYLINE-EON.RO', 'Monthly Bills: EON'),                      # Eon myline payment
-                   ('HBO', 'Monthly Bills: HBOgo'),                                  # HBO GO
-                   ('ORANGE', 'Monthly Bills: Phone'),                               # Orange Romania
-                   ('Scoala Primara EuroEd','Monthly Bills: Kindergarden&School'),   # KinderGarden and School - Euroed
-                   ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),             # EMAG
-                   ('DM FIL', 'Everyday Expenses: Household Goods'),                 # DM
-                   ('ALTEX', 'Everyday Expenses: Household Goods'),                  # Altex
-                   ('MOL', 'Everyday Expenses: Benzina/Motorina'),                   # Benzinaria MOL
-                   ('IASI ETAX', 'Yearly bills: Impozite'),                          # Taxe si impozite Iasi
-                   ('ING Gold', 'Yearly bills: Impozite'),                           # ING Card
-                   ('RCS AND RDS SA', 'Monthly Bills: RCS/RDS'),                     # RCS/RDS online pay
-                   ('SCOALA PRIMARA EUROED DEP', 'Monthly Bills: School'),           # Euroed
-                   ('NETFLIX', 'Monthly Bills: Netflix'),                            # Netflix
-                   ('Google Payment', 'Monthly Bills: Google Play'),                 # Google Play
-                   ('BANGGOOD', 'Monthly Bills: Atelier'),                           # Bangood
+                   ('CORSO', 'Everyday Expenses: Restaurants'),                      # Restaurante
+                   ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurants'),       # Montecatini
+                   ('PREMIER RESTAURANTS', 'Everyday Expenses: Restaurants'),        # McDonalds
+                   ('MOO CAFE PALAS DEP', 'Everyday Expenses: Restaurants'),         # Moo
+                   ('MAMMA MIA', 'Everyday Expenses: Restaurants'),                  # Mama mia
+                   ('TUFFLI DEP RO', 'Everyday Expenses: Restaurants'),              # Tuffli
+                   ('KFC', 'Everyday Expenses: Restaurants'),                        # KFC
+                   #Everyday Expenses: Medical
                    ('ARCADIA', 'Everyday Expenses: Medical'),                        # Arcadia Hospital
                    ('ARTIMA', 'Everyday Expenses: Medical'),                         # Farmacie ARTIMA
                    ('ROPHARMA', 'Everyday Expenses: Medical'),                       # Farmacie ROPHARMA
@@ -47,34 +71,58 @@ mappingCategory = [('CARREFOUR', 'Everyday Expenses: Groceries'),               
                    ('SMILE DENT SRL', 'Everyday Expenses: Medical'),                 # Dentist
                    ('FITERMAN', 'Everyday Expenses: Medical'),                       # Farmacie Fitterman
                    ('SENSIBLU', 'Everyday Expenses: Medical'),                       # Farmacie Sensiblu
-                   ('KOTON', 'Everyday Expenses: Haine'),                            # KOTON
-                   ('TAKKO', 'Everyday Expenses: Haine'),                            # TAKKO
-                   ('ZARA', 'Everyday Expenses: Haine'),                             # ZARA
-                   ('H&M', 'Everyday Expenses: Haine'),                              # H&M
-                   ('INA IULIUS MALL', 'Everyday Expenses: Haine'),                  # INA Iulius Mall 
-                   ('SIA SOF', 'Everyday Expenses: Haine'),                          # SIA SOF
-                   ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),       # Montecatini
-                   ('PREMIER RESTAURANTS', 'Everyday Expenses: Restaurante'),        # McDonalds
-                   ('MOO CAFE PALAS DEP', 'Everyday Expenses: Restaurante'),         # Moo
-                   ('MAMMA MIA', 'Everyday Expenses: Restaurante'),                  # Mama mia
-                   ('TUFFLI DEP RO', 'Everyday Expenses: Restaurante'),              # Tuffli
-                   ('KFC', 'Everyday Expenses: Restaurante'),                        # KFC
-                   ('LAVA&CUCE', 'Everyday Expenses: Curatenie & Ironing'),          # Curatatorie Iulius
-                   ('BLISS BEAUTY', 'Everyday Expenses: Curatenie & Ironing'),       # Bliss
-                   ('Rata Credit In contul: 9999', 'Debt: Apartment payment'),       # ING Credit
-                   ('Prima asigurare ING Credit', 'Debt: Apartment payment'),        # Asigurare ING Credit
+                   #Everyday Expenses: Clothing
+                   ('MARELBO', 'Everyday Expenses: Clothing'),                       # Marelbo
+                   ('KOTON', 'Everyday Expenses: Clothing'),                         # KOTON
+                   ('TAKKO', 'Everyday Expenses: Clothing'),                         # TAKKO
+                   ('ZARA', 'Everyday Expenses: Clothing'),                          # ZARA
+                   ('H&M', 'Everyday Expenses: Clothing'),                           # H&M
+                   ('INA IULIUS MALL', 'Everyday Expenses: Clothing'),               # INA Iulius Mall 
+                   ('SIA SOF', 'Everyday Expenses: Clothing'),                       # SIA SOF
+                   #Everyday Expenses: Household Goods
+                   ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),             # EMAG
+                   ('DM FIL', 'Everyday Expenses: Household Goods'),                 # DM
+                   ('ALTEX', 'Everyday Expenses: Household Goods'),                  # Altex
+                   #Everyday Expenses: Toys
+                   ('VARUNA', 'Everyday Expenses: Toys'),                            # Magazin Jucarii
+                   #Everyday Expenses: Cleaning & Ironing
+                   ('LAVA&CUCE', 'Everyday Expenses: Cleaning & Ironing'),          # Curatatorie Iulius
+                   ('BLISS BEAUTY', 'Everyday Expenses: Cleaning & Ironing'),       # Bliss
+
+                   #Rainy Day Funds
+                   #Rainy Day Funds: Car Repairs
+                   ('Support Auto', 'Rainy Day Funds: Car Repairs'),                 # Home Maintenance
+                   #Rainy Day Funds: Home Maintenance
                    ('LEROY MERLIN ROMANIA SRL', 'Rainy Day Funds: Home Maintenance'),# Home Maintenance
                    ('DEDEMAN', 'Rainy Day Funds: Home Maintenance'),                 # Home Maintenance
-                   ('Support Auto', 'Rainy Day Funds: Car Repairs'),                 # Home Maintenance
+                   #Rainy Day Funds: Car Insurance
+                   #Rainy Day Funds: Birthdays
+                   #Rainy Day Funds: Christmas
+
+                   #Savings Goals
+                   #Savings Goals: Car Replacement
+                   #Savings Goals: Domains
                    ('GLOBEHOSTIN', 'Savings Goals: Domains'),                        # edomenii.ro
+                   #Savings Goals: Vacation
+                   #Savings Goals: Restaurants
+                   #Savings Goals: Taxes
+                   ('IASI ETAX', 'Yearly bills: Taxes'),                          # Taxe si impozite Iasi
+                   ('ING Gold', 'Yearly bills: Taxes'),                           # ING Card
                    ('MUNICIPIUL IASI SNEP  RO', 'Yearly bills: Taxes'),              # Impozit apartament
                    ('ETAX', 'Yearly bills: Taxes'),                                  # Impozit apartament ETAX
-                   ('STEAM GAMES', 'Everyday Expenses: Spending Money Tinel'),       # Joace
-                   ('Retragere numerar', 'Everyday Expenses: Spending Money'),       # Extrageri
+
+                   #Debt
+                   #Debt: Emergency Fund
                    ('Tranzactie Round Up','Debt: Emergency Fund'),                   # Saving
+                   #Debt: Apartment payment
+                   ('Rata Credit In contul: 9999', 'Debt: Apartment payment'),       # ING Credit
+                   ('Prima asigurare ING Credit', 'Debt: Apartment payment'),        # Asigurare ING Credit
+
+                   #ignored entries
                    ('Realimentare Extra', 'ignore'),                                 # ignore transaction
                    ('transferata din linia de credit', 'ignore'),                    # ignore transaction
                    ('Detalii tranzactie', 'ignore')]                                 # ignore transaction
+                   
 
 detalii_tranzactie = ""
 debit = ""

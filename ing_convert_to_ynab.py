@@ -88,7 +88,8 @@ mappingCategory = [
                    ('Retragere numerar', 'Everyday Expenses: Spending Money'),       # Extrageri
                    ('Transfer Home','Rainy Day Funds: Emergency Fund'),              # Saving
                    ('Realimentare Extra', 'ignore'),                                 # ignore transaction
-                   ('transferata din linia de credit', 'ignore')]                    # ignore transaction
+                   ('transferata din linia de credit', 'ignore'),                    # ignore transaction
+                   ('Detalii tranzactie', 'ignore')]                                 # ignore transaction
 
 detalii_tranzactie = ""
 debit = ""
@@ -111,7 +112,7 @@ for filename in glob.glob('*.csv'):
     witeToFilename = "ynab_" + filename
     # create a file by appending ynab_ in front of the opened filename
     data = ""
-    with open(witeToFilename, 'wb') as csvfile:
+    with open(witeToFilename, 'w') as csvfile:
         fieldnames = ['Date', 'Payee', 'Category', 'Memo', 'Outflow', 'Inflow']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -123,7 +124,7 @@ for filename in glob.glob('*.csv'):
                     # reached the end of a segment. start of a segment is marked by populated date.
                     # end of a segmend considered when another segment begins
                     if data:
-                        print 'output: ' + data + ',' + detalii_tranzactie + ',"' + debit + '","' + credit + '"'
+                        print ('output: ' + data + ',' + detalii_tranzactie + ',"' + debit + '","' + credit + '"')
                         # try to identify category
                         category = findCategory(detalii_tranzactie)
                         # if category is ignore do not write something
@@ -137,7 +138,7 @@ for filename in glob.glob('*.csv'):
                     printData = '----->' + row['Data'] + ','
                     printData += row['Detalii tranzactie'] + ',"'
                     printData += row['Debit'] + '","' + row['Credit'] + '"'
-                    print printData
+                    print (printData)
                     data = row['Data']
                     # Replace the romanian month by the number of the month
                     data = data.replace(" ianuarie ", "/01/")
@@ -159,7 +160,7 @@ for filename in glob.glob('*.csv'):
                     detalii_tranzactie = detalii_tranzactie + \
                         ' ' + row['Detalii tranzactie']
             # catch also the last entry inside the import file
-            print 'output: ' + data + ',' + detalii_tranzactie + ',"' + debit + '","' + credit + '"'
+            print ('output: ' + data + ',' + detalii_tranzactie + ',"' + debit + '","' + credit + '"')
             # try to identify category
             category = findCategory(detalii_tranzactie)
             # write the entry in YNAB csv

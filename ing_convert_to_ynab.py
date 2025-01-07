@@ -25,7 +25,8 @@ cleanRowMarkup = [
                     (1,'Roxana Petria'),
                     (1,'Serviciu Dezvoltare'),
                     (2,'ING Bank N.V. Amsterdam'),
-                    (2,'Sucursala Buc')
+                    (2,'Sucursala Buc'),
+                    (0,'Eliberat pentru')
 ]
 
 #mapping category for the usual transfers
@@ -369,6 +370,8 @@ def postProcessIngExport(filename):
                         #add to the string value
                         detailsRow = detailsRow + " " + row['Details']
                     lineCounter = lineCounter + 1
+                    #last row is marked by 'Sold ini"
+                    if row['Date'].find('Sold ini') >= 0:  break
                     if lineCounter == numberOfRows:
                         #write last row
                         writer.writerow({'Date': dateValue,
@@ -382,6 +385,14 @@ def convertToYNAB(filename):
     writeFilePostProcessName = "ynab_post_" + filename
     writeFilePostProcessNameYNAB = "ynab_import_" + filename
     writeFileCategoryManager = 'ynab_categoryManager_'+filename
+    payeeName = 'Not known'
+    #if filename contains "890227" then payee is Tinel
+    if filename.find("890227") >= 0:
+        payeeName = 'Tinel'
+    #if filename contains "883376" then payee is Monica
+    if filename.find("883376") >= 0:
+        payeeName = 'Monica'
+        
     with open(writeFileCategoryManager, 'w', newline='') as csvWriteCategoryfile:
         writerCategory = csv.DictWriter(csvWriteCategoryfile, fieldnames=fieldnamesDefinitionCategoryManager)
         writerCategory.writeheader()
@@ -401,22 +412,25 @@ def convertToYNAB(filename):
                         # if category is ignore do not write something
                         if category.find('ignore') < 0:
                             # write the entry in YNAB csv
-                            writer.writerow({'Date': row['Date'],
-                                            'Payee': 'Monica', #Monica
-                                            'Category': category,
-                                            'Memo': row['Details'],
-                                            'Outflow': row['Value_out'],
-                                            'Inflow': row['Value_in']
-                                            })
+                            #do not write the blank categories to the file -> part of the pending tranzactions
+                            if row['Details'].isspace() != True:
+                                writer.writerow({'Date': row['Date'],
+                                                'Payee': payeeName, #Monica
+                                                'Category': category,
+                                                'Memo': row['Details'],
+                                                'Outflow': row['Value_out'],
+                                                'Inflow': row['Value_in']
+                                                })
 
                         #categories ['String','Substring','Category','Found']
-
-                        writerCategory.writerow({'String': row['Details'],
-                                                'Substring': findCategoryMapping(row['Details']),
-                                                'Category': category,
-                                                'Value_out': row['Value_out'],
-                                                'Value_in': row['Value_in']
-                                                })
+                        #do not write the blank categories to the file -> part of the pending tranzactions
+                        if row['Details'].isspace() != True:
+                            writerCategory.writerow({'String': row['Details'],
+                                                    'Substring': findCategoryMapping(row['Details']),
+                                                    'Category': category,
+                                                    'Value_out': row['Value_out'],
+                                                    'Value_in': row['Value_in']
+                                                    })
 
 for filename in glob.glob('*.csv'):
     preProcessIngExport(filename)

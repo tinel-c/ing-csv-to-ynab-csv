@@ -32,228 +32,238 @@ cleanRowMarkup = [
 #mapping category for the usual transfers
 mappingCategory = [
                    #Savings
-                   ('Detalii: Christmas','Savings Goals: Christmas'),                 # Saving
-                   ('Detalii: Birthdays','Savings Goals: Birthdays'),                 # Saving
-                   ('Detalii: Domains','Savings Goals: Domains'),                   # Saving
-                   ('Detalii: Car replacement','Savings Goals: Car replacement'),           # Saving
-                   ('Detalii: Vacation','Savings Goals: Vacation'),                  # Saving
-                   ('Detalii: Car Repairs','Savings Goals: Car Repairs'),               # Saving
-                   ('Detalii: Home maintanance','Savings Goals: Home Maintanance'),          # Saving
-                   ('Detalii: Car Insurance','Savings Goals: Car Insurance'),             # Saving
-                   ('Tranzactie Round Up','Savings Goals: Round-up'),                # Saving
-                   #Monthly Bills
-                   #Monthly Bills: Kindergarden&School
-                   ('Scoala Primara EuroEd','Monthly Bills: Kindergarden&School'),   # KinderGarden and School - Euroed
-                   #Monthly Bills: EON
-                   ('EON GAZ FURNZARE', 'Monthly Bills: EON'),                       # EON Natural Gaz
-                   ('WWW.EON.RO/MYLINE', 'Monthly Bills: EON'),                      # Eon myline payment
-                   ('AS. DE LOCATARI FRUMOASA II','Monthly Bills: Asociatie'),       # Plata Asociatie
-                   #Monthly Bills: Phone
-                   ('WWW.ORANGE.RO/YOXO', 'Monthly Bills: Phone'),                   # Orange Romania
-                   ('myorangefix', 'Monthly Bills: Internet'),                          # Orange Romania
-                   ('ORANGE ROMANIA', 'Monthly Bills: Internet'),                          # Orange Romania
+                   ('Detalii: Christmas'            ,'Christmas'),                 # Saving
+                   ('Detalii: Birthdays'            ,'Birthdays'),                 # Saving
+                   ('Detalii: Domains'              ,'Domains'),                   # Saving
+                   ('Detalii: Car replacement'      ,'Car replacement'),           # Saving
+                   ('Detalii: Vacation'             ,'Vacation'),                  # Saving
+                   ('Detalii: Car Repairs'          ,'Car Repairs'),               # Saving
+                   ('Detalii: Home maintanance'     ,'Home Maintanance'),          # Saving
+                   ('Detalii: Car Insurance'        ,'Car Insurance'),             # Saving
+                   ('Tranzactie Round Up'           ,'Round-up'),                # Saving
+                   #Monthly Bills   
+                   #Kindergarden&School 
+                   ('Scoala Primara EuroEd'         ,'Kindergarden&School'),   # KinderGarden and School - Euroed
+                   #EON 
+                   ('EON GAZ FURNZARE'              , 'EON'),                       # EON Natural Gaz
+                   ('WWW.EON.RO/MYLINE'             , 'EON'),                      # Eon myline payment
+                   ('E.ON'                          , 'EON'),                       # EON Natural Gaz   
+                   ('AS. DE LOCATARI FRUMOASA II'   ,'Asociatie'),       # Plata Asociatie
+                   #Phone
+                   ('WWW.ORANGE.RO/YOXO'            , 'Phone'),                   # Orange Romania
+                   ('myorangefix'                   , 'Internet'),                          # Orange Romania
+                   ('ORANGE ROMANIA'                , 'Internet'),                          # Orange Romania
                    
-                   #Monthly Bills: Maintanance&Water
-                   #Monthly Bills: EON Buni
-                   #Monthly Bills: Buni
-                   #Monthly Bills: Bona
-                   ('RO92INGB0000999905926537', 'Monthly Bills: Bona'),              # Plata bona
-                   #Monthly Bills: HBOgo
-                   ('HBO', 'Monthly Bills: HBOgo'),                                  # HBO GO
-                   #Monthly Bills: RCS/RDS
-                   ('RCS AND RDS SA', 'Monthly Bills: RCS/RDS'),                     # RCS/RDS online pay
-                   #Monthly Bills: Netflix
-                   ('NETFLIX', 'Monthly Bills: Netflix'),                            # Netflix
-                   ('Amazon Video', 'Monthly Bills: Amazon Video'),                       # Amazon Video
+                   #Maintanance&Water
+                   #EON Buni
+                   #Buni
+                   #Bona
+                   ('RO92INGB0000999905926537'      , 'Bona'),              # Plata bona
+                   #HBOgo
+                   ('HBO'                           , 'Streaming'),                                  # HBO GO
+                   #RCS/RDS
+                   ('RCS AND RDS SA'                , 'RCS/RDS'),                     # RCS/RDS online pay
+                   #Netflix
+                   ('NETFLIX'                       , 'Streaming'),                            # Netflix
+                   ('Amazon Video'                  , 'Streaming'),                       # Amazon Video
                    
-                   #Monthly Bills: Google Play
-                   ('Google Payment', 'Monthly Bills: Google Play'),                 # Google Play
-                   ('YouTubePremium', 'Monthly Bills: Google Play'),                 # Google Play
-                   #Monthly Bills: Atelier
-                   ('BANGGOOD', 'Monthly Bills: Atelier'),                           # Bangood
+                   #Google Play
+                   ('Google Payment'                , 'Google Play'),                 # Google Play
+                   ('YouTubePremium'                , 'Streaming'),                 # Google Play
+                   #Atelier
+                   ('BANGGOOD'                      , 'Atelier'),                           # Bangood
+                   ('ALIEXPRES'                    , 'Atelier'),                          # Aliexpress
                    #Games        
-                   ('PAYPAL *PATREONIREL', 'Monthly Bills: Games'),                  # Games
-                   ('PAYPAL *KINGUINDIGI', 'Monthly Bills: Games'),                  # Games
-                   ('PAYPAL *2CO.COM', 'Monthly Bills: Games'),                      # Games
-                   ('PAYPAL *DIGITALRIVE', 'Monthly Bills: Games'),                  # Games
+                   ('PAYPAL *PATREONIREL'           , 'Games'),                  # Games
+                   ('PAYPAL *KINGUINDIGI'           , 'Games'),                  # Games
+                   ('PAYPAL *2CO.COM'               , 'Games'),                      # Games
+                   ('PAYPAL *DIGITALRIVE'           , 'Games'),                  # Games
                    
                    
                    #Everyday Expenses
                    #Everyday Expenses: Groceries
-                   ('CARREFOUR', 'Everyday Expenses: Groceries'),                    # Carrefour
-                   ('MPN LOGISTICS', 'Everyday Expenses: Groceries'),                # Carrefour
-                   ('Zig Delivero', 'Everyday Expenses: Groceries'),                 # Carrefour
-                   ('GILCA MIHAI FITNESS', 'Everyday Expenses: Groceries'),          # Carrefour
-                   ('Pantiru Mihai PFA', 'Everyday Expenses: Groceries'),          # Carrefour
-                   ('LIDL', 'Everyday Expenses: Groceries'),                         # LIDL
-                   ('PICO MAG DEP', 'Everyday Expenses: Groceries'),                 # PiCo magazin
-                   ('CRISNIC MARKET', 'Everyday Expenses: Groceries'),               # PiCo magazin
-                   ('Glovo GLOVO PRIME', 'Everyday Expenses: Groceries'),               # PiCo magazin
-                   ('Auchan', 'Everyday Expenses: Groceries'),               # PiCo magazin
-                   ('Terminal: Livrator  RO', 'Everyday Expenses: Groceries'),               # PiCo magazin
+                   ('CARREFOUR'                     , 'Groceries'),                    # Carrefour
+                   ('MPN LOGISTICS'                 , 'Groceries'),                # Carrefour
+                   ('Zig Delivero'                  , 'Groceries'),                 # Carrefour
+                   ('GILCA MIHAI FITNESS'           , 'Groceries'),          # Carrefour
+                   ('Pantiru Mihai PFA'             , 'Groceries'),          # Carrefour
+                   ('LIDL'                          , 'Groceries'),                         # LIDL
+                   ('Lidl Discount'                , 'Groceries'),                 # LIDL
+                   ('PICO MAG DEP'                  , 'Groceries'),                 # PiCo magazin
+                   ('CRISNIC MARKET'                , 'Groceries'),               # Crisnic magazin
+                   ('Glovo GLOVO PRIME'             , 'Groceries'),               # Glovo magazin
+                   ('Auchan'                        , 'Groceries'),               # Auchan magazin
+                   ('Terminal: Livrator  RO'        , 'Groceries'),               # Bringo magazin
+                   ('MARYO S EAST '                 ,'Groceries'),               # 2 Pasi magazin
+                   ('PENNY '                        ,'Groceries'),               # Penny magazin
+                   ('MCS STORE'             ,'Groceries'),               # Meat concept Iasi
 
 
-                   ('MY EVENTS SRL', 'Everyday Expenses: Office food'),              # Bistro Servici
-                   ('SALAD BOX', 'Everyday Expenses: Office food'),                  # Bistro Servici
-                   ('MADO', 'Everyday Expenses: Office food'),                       # Bistro Servici
-                   ('OSPATUL ZEILOR', 'Everyday Expenses: Office food'),             # Bistro Servici
-                   ('SIMIGERIA PETRU', 'Everyday Expenses: Office food'),            # Bistro Servici
-                   ('BLACK DOT COFFEE', 'Everyday Expenses: Office food'),           # Bistro Servici
-                   ('NEATA CAFE', 'Everyday Expenses: Office food'),           # Bistro Servici
+                   ('MY EVENTS SRL'                 , 'Office food'),              # Bistro Servici
+                   ('SALAD BOX'                     , 'Office food'),                  # Bistro Servici
+                   ('MADO'                          , 'Office food'),                       # Bistro Servici
+                   ('OSPATUL ZEILOR'                , 'Office food'),             # Bistro Servici
+                   ('SIMIGERIA PETRU'               , 'Office food'),            # Bistro Servici
+                   ('BLACK DOT COFFEE'              , 'Office food'),           # Bistro Servici
+                   ('NEATA CAFE'                    , 'Office food'),           # Bistro Servici
                    
                    
 
-                   ('EMAG SHOWR', 'Everyday Expenses: Household Goods'),             # EMAG
-                   ('DM FIL', 'Everyday Expenses: Household Goods'),                 # DM
-                   ('ALTEX', 'Everyday Expenses: Household Goods'),                  # Altex
-                   ('DM DROGERIE MARKT SRL', 'Everyday Expenses: Household Goods'),  # DM
-                   ('MOBILPAY*HAIRCARE', 'Everyday Expenses: Household Goods'),  # DM
+                   ('EMAG SHOWR'                    , 'Household Goods'),             # EMAG
+                   ('DM FIL'                        , 'Household Goods'),                 # DM
+                   ('ALTEX'                         , 'Household Goods'),                  # Altex
+                   ('DM DROGERIE MARKT SRL'         , 'Household Goods'),  # DM
+                   ('MOBILPAY*HAIRCARE'             , 'Household Goods'),  # DM
 
-                   ('MOL', 'Everyday Expenses: Fuel'),                               # Benzinaria MOL
-                   ('OMV', 'Everyday Expenses: Fuel'),                               # Benzinaria MOL
+                   ('MOL'                           , 'Fuel'),                               # Benzinaria MOL
+                   ('OMV'                           , 'Fuel'),                               # Benzinaria MOL
                    
 
-                   ('IASI ETAX', 'Yearly bills: Impozite'),                          # Taxe si impozite Iasi
-                   ('ING Gold', 'Yearly bills: Impozite'),                           # ING Card
-                   ('MUNICIPIUL IASI SNEP  RO', 'Yearly bills: Impozite'),           # Impozit apartament
-                   ('ETAX', 'Yearly bills: Impozite'),                               # Impozit apartament ETAX
+                   ('IASI ETAX'                     , 'Impozite'),                          # Taxe si impozite Iasi
+                   ('ING Gold'                      , 'Impozite'),                           # ING Card
+                   ('MUNICIPIUL IASI SNEP  RO'      , 'Impozite'),           # Impozit apartament
+                   ('ETAX'                          , 'Impozite'),                               # Impozit apartament ETAX
 
 
 
 
-                   ('ARCADIA', 'Everyday Expenses: Medical'),                        # Arcadia Hospital
-                   ('ARTIMA', 'Everyday Expenses: Medical'),                         # Farmacie ARTIMA
-                   ('HELP NET FARMA', 'Everyday Expenses: Medical'),                 # Farmacie Helpnet
-                   ('SMILE DENT SRL', 'Everyday Expenses: Medical'),                 # Dentist
-                   ('FITERMAN', 'Everyday Expenses: Medical'),                       # Farmacie Fitterman
-                   ('SENSIBLU', 'Everyday Expenses: Medical'),                       # Farmacie Sensiblu
-                   ('D.D.I. RADIOLOGIE', 'Everyday Expenses: Medical'),               # DDI medical radiografii
-                   ('FARMACIA FLORA', 'Everyday Expenses: Medical'),               # FARMACIA FLORA
-                   ('FARMACIA DONA', 'Everyday Expenses: Medical'),               # FARMACIA Dona
-                   ('ASKLEPIOS-RO', 'Everyday Expenses: Medical'),               # Onofriescu
-                   ('ROPHARMA', 'Everyday Expenses: Medical'),               # ROPHARMA
+                   ('ARCADIA'                       , 'Medical'),                        # Arcadia Hospital
+                   ('ARTIMA'                        , 'Medical'),                         # Farmacie ARTIMA
+                   ('HELP NET FARMA'                , 'Medical'),                 # Farmacie Helpnet
+                   ('SMILE DENT SRL'                , 'Medical'),                 # Dentist
+                   ('FITERMAN'                      , 'Medical'),                       # Farmacie Fitterman
+                   ('SENSIBLU'                      , 'Medical'),                       # Farmacie Sensiblu
+                   ('D.D.I. RADIOLOGIE'             , 'Medical'),               # DDI medical radiografii
+                   ('FARMACIA FLORA'                , 'Medical'),               # FARMACIA FLORA
+                   ('FARMACIA DONA'                 , 'Medical'),               # FARMACIA Dona
+                   ('ASKLEPIOS-RO'                  , 'Medical'),               # Onofriescu
+                   ('ROPHARMA'                      , 'Medical'),               # ROPHARMA
+                   ('LARA FARM'                     , 'Medical'),               # Lara Farm
+                   ('ANA PHARM'                    , 'Medical'),               # Ana Pharm
                     
 
-                   ('MARELBO', 'Everyday Expenses: Clothing'),                          # Marelbo
-                   ('KOTON', 'Everyday Expenses: Clothing'),                            # KOTON
-                   ('TAKKO', 'Everyday Expenses: Clothing'),                            # TAKKO
-                   ('ZARA', 'Everyday Expenses: Clothing'),                             # ZARA
-                   ('H&M', 'Everyday Expenses: Clothing'),                              # H&M
-                   ('INA IULIUS MALL', 'Everyday Expenses: Clothing'),                  # INA Iulius Mall 
-                   ('SIA SOF', 'Everyday Expenses: Clothing'),                          # SIA SOF
-                   ('CCC PALAS', 'Everyday Expenses: Clothing'),                        # CCC
-                   ('MELI MELO FASHION', 'Everyday Expenses: Clothing'),                # Meli Melo
-                   ('ELEGANT PRICOP', 'Everyday Expenses: Clothing'),                   # Elegant Group - Camasi
-                   ('ART TRADITIE', 'Everyday Expenses: Clothing'),                     # magazin ie
-                   ('SOPORAN RAVECA', 'Everyday Expenses: Clothing'),                   # magazin ie
-                   ('ROUMASPORT', 'Everyday Expenses: Clothing'),                       # Decathlon Botosani
-                   
-                   
-                   ('SEDCOMLIBRIS','Everyday Expenses: Library'),                    # Librarie
+                   ('MARELBO'                       , 'Clothing'),                          # Marelbo
+                   ('KOTON'                         , 'Clothing'),                            # KOTON
+                   ('TAKKO'                         , 'Clothing'),                            # TAKKO
+                   ('ZARA'                          , 'Clothing'),                             # ZARA
+                   ('H&M'                           , 'Clothing'),                              # H&M
+                   ('INA IULIUS MALL'               , 'Clothing'),                  # INA Iulius Mall 
+                   ('SIA SOF'                       , 'Clothing'),                          # SIA SOF
+                   ('CCC PALAS'                     , 'Clothing'),                        # CCC
+                   ('MELI MELO FASHION'             , 'Clothing'),                # Meli Melo
+                   ('ELEGANT PRICOP'                , 'Clothing'),                   # Elegant Group - Camasi
+                   ('ART TRADITIE'                  , 'Clothing'),                     # magazin ie
+                   ('SOPORAN RAVECA'                , 'Clothing'),                   # magazin ie
+                   ('ROUMASPORT'                    , 'Clothing'),                       # Decathlon Botosani
+                   ('HM Hennes'                     , 'Clothing'),                        # H&M
+                   ('Zara.com'                      , 'Clothing'),                        # Zara.com    
+                   ('SAMEDAY.RO'                    , 'Clothing'),                        # SameDay.ro
+                   ('MAXI PET IASI '                     ,'Pets'),                    # Petshop
+                   ('MPVET IASI'                        ,'Pets'),                    # Petshop
+
+                   ('SEDCOMLIBRIS'                  ,'Library'),                    # Librarie
                    
 
-                   ('PASTICCERIA MONTECAT', 'Everyday Expenses: Restaurante'),       # Montecatini
-                   ('PREMIER RESTAURANTS', 'Everyday Expenses: Restaurante'),        # McDonalds
-                   ('MOO CAFE PALAS DEP', 'Everyday Expenses: Restaurante'),         # Moo
-                   ('MAMMA MIA', 'Everyday Expenses: Restaurante'),                  # Mama mia
-                   ('TUFFLI DEP RO', 'Everyday Expenses: Restaurante'),              # Tuffli
-                   ('KFC', 'Everyday Expenses: Restaurante'),                        # KFC
-                   ('VENETO RESTAURANT SRL', 'Everyday Expenses: Restaurante'),      # Veneto
-                   ('VO CHEF SRL', 'Everyday Expenses: Restaurante'),                # Vo
-                   ('EVERTOGETHER SRL', 'Everyday Expenses: Restaurante'),               
-                   ('N BEES', 'Everyday Expenses: Restaurante'),               
-                   ('PASTRY CASA DULCE', 'Everyday Expenses: Restaurante'),               
-                   ('NOODLE PACK', 'Everyday Expenses: Restaurante'),               
-                   ('CASA TRADITIEI', 'Everyday Expenses: Restaurante'),               
-                   ('FRATELLI RISTORANTE', 'Everyday Expenses: Restaurante'),               
-                   ('BRIO GROUP', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('GRAPIC ARTISAN BAKERY', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('COLUMBUS OPERATIONAL', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('YOYOUGURT', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('BETTY ICE', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('CORSINI PASTICCERI', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('STRONGMNDCORP.SR', 'Everyday Expenses: Restaurante'),                # Spartan 
-                   ('DONUTERIE', 'Everyday Expenses: Restaurante'),                # Spartan 
-                   ('BIO BOX SRL', 'Everyday Expenses: Restaurante'),                # Spartan 
-                   ('Dinah  Aliment', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('Veranda  RO', 'Everyday Expenses: Restaurante'),                # Veranda
-                   ('Glovo', 'Everyday Expenses: Groceries'),               # Glovo restaurante
+                   ('PASTICCERIA MONTECAT'          , 'Restaurante'),       # Montecatini
+                   ('PREMIER RESTAURANTS'           , 'Restaurante'),        # McDonalds
+                   ('MOO CAFE PALAS DEP'            , 'Restaurante'),         # Moo
+                   ('MAMMA MIA'                     , 'Restaurante'),                  # Mama mia
+                   ('TUFFLI DEP RO'                 , 'Restaurante'),              # Tuffli
+                   ('KFC'                           , 'Restaurante'),                        # KFC
+                   ('VENETO RESTAURANT SRL'         , 'Restaurante'),      # Veneto
+                   ('VO CHEF SRL'                   , 'Restaurante'),                # Vo
+                   ('EVERTOGETHER SRL'              , 'Restaurante'),               
+                   ('N BEES'                        , 'Restaurante'),               
+                   ('PASTRY CASA DULCE'             , 'Restaurante'),               
+                   ('NOODLE PACK'                   , 'Restaurante'),               
+                   ('CASA TRADITIEI'                , 'Restaurante'),               
+                   ('FRATELLI RISTORANTE'           , 'Restaurante'),               
+                   ('BRIO GROUP'                    , 'Restaurante'),                # Petru
+                   ('GRAPIC ARTISAN BAKERY'         , 'Restaurante'),                # Petru
+                   ('COLUMBUS OPERATIONAL'          , 'Restaurante'),                # Petru
+                   ('YOYOUGURT'                     , 'Restaurante'),                # MU
+                   ('BETTY ICE'                     , 'Restaurante'),                # Petru
+                   ('CORSINI PASTICCERI'            , 'Restaurante'),                # Petru
+                   ('STRONGMNDCORP.SR'              , 'Restaurante'),                # Spartan 
+                   ('DONUTERIE'                     , 'Restaurante'),                # Spartan 
+                   ('BIO BOX SRL'                   , 'Restaurante'),                # Spartan 
+                   ('Dinah  Aliment'                , 'Restaurante'),                # Petru
+                   ('Veranda  RO'                   , 'Restaurante'),                # Veranda
+                   ('ABI CONCEPT SAPTE'             , 'Restaurante'),                # Abi Concept
+                   ('CARTOFISSERIE'                 , 'Restaurante'),                # Cartofisserie
+                   ('SMART BUSINESS'                , 'Restaurante'),                # Smart Business  
+
+                   ('Glovo'                         , 'Groceries'),               # Glovo restaurante
                    
 
-                   ('Iasi 6 Bucium', 'Everyday Expenses: Unknown'),                # Petru
-                   ('DISTRIBUTION SERVICES', 'Everyday Expenses: Unknown'),                # Petru
-                   ('COSTACHE M. IONUT', 'Everyday Expenses: Unknown'),                # Petru
-                   ('BETTY ICE', 'Everyday Expenses: Restaurante'),                # Petru
-                   ('NYX*SCINTERNATIONALCON', 'Everyday Expenses: Unknown'),                # Petru
-                   ('Terminal: Timisoara 2 -Republici', 'Everyday Expenses: Unknown'),                # Petru
-                   ('Piatra Neamt 2  RO', 'Everyday Expenses: Unknown'),                # Petru
-                   ('Terminal: Curier Robert  RO', 'Everyday Expenses: Unknown'),                # Petru
-                   ('Terminal: CTELOG 2022', 'Everyday Expenses: Unknown'),                # Petru
-                   ('Terminal: ZOLSPORT 5', 'Everyday Expenses: Unknown'),                # Petru
-                   ('PRITAX INVEST SRL', 'Everyday Expenses: Unknown'),                # Petru
-                   ('NYX*ALBO-SITI', 'Everyday Expenses: Unknown'),                # Petru
-                   ('ONE DISTRIBUTION COMPANY', 'Everyday Expenses: Unknown'),                # Petru
-                   ('Gheorgheni - Kossuth', 'Everyday Expenses: Unknown'),                # Petru
-                   ('COVASNICIUC DANIELA I.I.', 'Everyday Expenses: Unknown'),                # Petru
-                   ('BEST REFLEX SRL', 'Everyday Expenses: Unknown'),                # Petru
+                   ('Iasi 6 Bucium'                 , 'Unknown'),                # Petru
+                   ('DISTRIBUTION SERVICES'         , 'Unknown'),                # Petru
+                   ('COSTACHE M. IONUT'             , 'Unknown'),                # Petru
+                   ('BETTY ICE'                     , 'Restaurante'),                # Petru
+                   ('Beneficiar:De Basm'           , 'Education'),                # Educatie Cristina
                    
 
-                   ('EUROSERVICE TECHNOLOGY', 'Monthly Bills: Washing'),                # Petru
+                   ('EUROSERVICE TECHNOLOGY'        , 'Washing'),                # Petru
 
-                   ('UBER', 'Everyday Expenses: Taxi'),                # Petru
+                   ('UBER'                          , 'Taxi'),                # Petru
                    
 
-                   ('Unorthodox Roa', 'Giving: Presents'),                # Cadouri Iulia
-                   ('AMZNMktplace  GB', 'Giving: Presents'),                # Cadouri Iulia
-                   ('DON SERAFIM', 'Giving: Presents'),                # Jewlery
-                   ('EP*bilet.ro', 'Giving: Presents'),                # Concerte
-                   ('PAYU*IABILET', 'Giving: Presents'),                # Concerte
-                   ('GOPAY  *BAVIXO.RO', 'Giving: Presents'),                # Hay clay
-                   ('Super Entertaining SRL', 'Giving: Presents'),                # Superfun
-                   ('EASYBOX STEFAN', 'Giving: Presents'),                # Superfun
+                   ('Unorthodox Roa'                , 'Presents'),                # Cadouri Iulia
+                   ('AMZNMktplace  GB'              , 'Presents'),                # Cadouri Iulia
+                   ('DON SERAFIM'                   , 'Presents'),                # Jewlery
+                   ('EP*bilet.ro'                   , 'Presents'),                # Concerte
+                   ('PAYU*IABILET'                  , 'Presents'),                # Concerte
+                   ('GOPAY  *BAVIXO.RO'             , 'Presents'),                # Hay clay
+                   ('Super Entertaining SRL'        , 'Presents'),                # Superfun
+                   ('EASYBOX STEFAN'                , 'Presents'),                # Superfun
                                       
-                   ('BOAVISTA SPORT HOTEL', 'Work: Hotels'),                # Boavista Timisoara
-                   ('PRITAX INVEST', 'Work: Hotels'),                       # Pritax Sibiu 
+                   ('BOAVISTA SPORT HOTEL'          , 'Hotels'),                # Boavista Timisoara
+                   ('PRITAX INVEST'                 , 'Hotels'),                       # Pritax Sibiu 
                    
                    
-                   ('LAVA&CUCE', 'Everyday Expenses: Curatenie & Ironing'),          # Curatatorie Iulius
+                   ('LAVA&CUCE'                     , 'Curatenie & Ironing'),          # Curatatorie Iulius
 
-                   ('IULIUS MANAGEMENT CENTER','Everyday Expenses: Parcare'),        # Parcare Iulius
-                   ('IULIUS PALAS7A ENT','Everyday Expenses: Parcare'),              # Parcare Iulius
-                   ('ATTRIUS DEVELOPMENTS','Everyday Expenses: Parcare'),            # Parcare Iulius
+                   ('IULIUS MANAGEMENT CENTER'      ,'Parcare'),        # Parcare Iulius
+                   ('IULIUS PALAS7A ENT'            ,'Parcare'),              # Parcare Iulius
+                   ('ATTRIUS DEVELOPMENTS'          ,'Parcare'),            # Parcare Iulius
 
-                   ('BLISS BEAUTY', 'Everyday Expenses: Look&Feel'),                 # Bliss
+                   ('BLISS BEAUTY'                  , 'Look&Feel'),                 # Bliss
 
-                   ('ORANGE ROMANIA', 'Monthly Bills: Phone'),                       # Orange Romania
+                   ('ORANGE ROMANIA'                , 'Phone'),                       # Orange Romania
                    
-                   ('PROZ.COM', 'Monthly Bills: Carti'),                           # Proz
-                   ('MOBILPAY*EDITURA-ART', 'Monthly Bills: Carti'),                           # Proz
-                   ('Kindle Svcs', 'Monthly Bills: Carti'),                           # Proz
-                   
-                   
-
-                   ('NORIEL TOYS', 'Monthly Bills: Toys'),                           # Noriel
-                   ('CINEMA CITY', 'Monthly Bills: Cinema'),                         # Noriel
+                   ('PROZ.COM'                      , 'Carti'),                           # Proz
+                   ('MOBILPAY*EDITURA-ART'          , 'Carti'),                           # Proz
+                   ('Kindle Svcs'                   , 'Carti'),                           # Proz
                    
                    
 
-                   ('LEROY MERLIN ROMANIA SRL', 'Savings Goals: Home Maintanance'),# Home Maintenance
-                   ('KITCHEN SHOP', 'Savings Goals: Home Maintanance'),            # Home Maintenance
-                   ('DEDEMAN', 'Savings Goals: Home Maintanance'),                 # Home Maintenance
-                   ('ARABESQUE', 'Savings Goals: Home Maintanance'),               # Home Maintenance    
-                   ('PAYU*EMAG.RO', 'Savings Goals: Home Maintanance'),            # Home Maintenance    
+                   ('NORIEL TOYS'                   , 'Toys'),                           # Noriel
+                   ('CINEMA CITY'                   , 'Cinema'),                         # Noriel
+                   
+                   
 
-                   ('Support Auto', 'Rainy Day Funds: Car Repairs'),                 # Home Maintenance
+                   ('LEROY MERLIN ROMANIA SRL'      , 'Home Maintanance'),# Home Maintenance
+                   ('KITCHEN SHOP'                  , 'Home Maintanance'),            # Home Maintenance
+                   ('DEDEMAN'                       , 'Home Maintanance'),                 # Home Maintenance
+                   ('ARABESQUE'                     , 'Home Maintanance'),               # Home Maintenance    
+                   ('PAYU*EMAG.RO'                  , 'Home Maintanance'),            # Home Maintenance    
 
-                   ('GLOBEHOSTIN', 'Yearly bills: Site-uri'),                        # edomenii.ro
+                   ('Support Auto'                  , 'Car Repairs'),                 # Home Maintenance
 
-                   ('Retragere numerar', 'Everyday Expenses: Retragere'),            # Extrageri
+                   ('GLOBEHOSTIN'                   , 'Site-uri'),                        # edomenii.ro
 
-                   ('Allianz-Tiriac','Yearly bills: Asigurari'),                     # Allianz-Tiriac
+                   ('Retragere numerar'             , 'Retragere'),            # Extrageri
 
-                   ('Realimentare Extra', 'ignore'),                                 # ignore transaction
+                   ('Allianz-Tiriac'                ,'Asigurari'),                     # Allianz-Tiriac
+
+                   ('ALENTEJO'                      ,'Pocket Money Monica'),                     # Alentejo Pocket Money Monica
+                   (' asigurare de viata'           ,'Health Insurance'),                     # Life Insurance
+                   ('WALLET'                         ,'Software'),                     # Softare purchases
+                   ('Scribd'                         ,'Software'),                     # Scribd
+
+                   ('Realimentare Extra'            , 'ignore'),                                 # ignore transaction
                    ('transferata din linia de credit', 'ignore'),                    # ignore transaction
-                   ('Detalii tranzactie', 'ignore')]                                 # ignore transaction
+                   ('Detalii tranzactie'            , 'ignore')]                                 # ignore transaction
 
 detalii_tranzactie = ""
 debit = ""
@@ -418,8 +428,8 @@ def convertToYNAB(filename):
                                                 'Payee': payeeName, #Monica
                                                 'Category': category,
                                                 'Memo': row['Details'],
-                                                'Outflow': row['Value_out'],
-                                                'Inflow': row['Value_in']
+                                                'Outflow': row['Value_out'].replace('.', '').replace(',', '.'),
+                                                'Inflow': row['Value_in'].replace('.', '').replace(',', '.')
                                                 })
 
                         #categories ['String','Substring','Category','Found']
@@ -428,8 +438,8 @@ def convertToYNAB(filename):
                             writerCategory.writerow({'String': row['Details'],
                                                     'Substring': findCategoryMapping(row['Details']),
                                                     'Category': category,
-                                                    'Value_out': row['Value_out'],
-                                                    'Value_in': row['Value_in']
+                                                    'Value_out': row['Value_out'].replace(',', '.'),
+                                                    'Value_in': row['Value_in'].replace(',', '.')
                                                     })
 
 for filename in glob.glob('*.csv'):

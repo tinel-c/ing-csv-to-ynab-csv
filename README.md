@@ -9,7 +9,9 @@ Follow the steps each time you want to import:
 
 1. Place the csv file in the same folder with ing_covert_to_ynab.exe
 2. Execute ing_convert_to_ynab.exe by double clicking on it
-3. Import to YNAB the resulted csv file ynab_.csv
+3. Import to YNGSB the resulted csv file ynab_.csv 
+
+YNAB is not supporting the classic application. Ported the YNAB application to google spreadsheet.
 
 ### Executing python code
 Before use:
@@ -21,7 +23,28 @@ Follow the steps each time you want to import:
 1. Export transactions to a csv file from homebank.ro (-filename-.csv)
 2. Place the py script in the same folder
 3. Execute the py script to output ynab_-filename-.csv
-4. Import the ynab_-filename-.csv file to YNAB 4 with csv import option (ctrl+i)
+4. Import to YNGSB the resulted csv file ynab_.csv 
+
+### Creating the google sheet application
+
+Follow the the steps:
+
+1. Create a new sheet in google sheets and name it to your needs
+2. Create the following sheets YNGSB , Transactions , Import , Log
+3. Go to Extentions -> Apps Script
+4. Copy the code from Code.gs
+5. Save and reload the browser in the google sheet tab
+6. A new Menu will apear Budget
+7. Click Budget -> Initialize spreadsheet while having YNGSB selected
+8. Click Budget -> Process formulas 
+
+Interface ready to track the budget like in the classic YNAB.
+
+How to import:
+1. After running the python script copy all entries toghether with the header inside the Import sheet
+2. Budget -> Import new transactions from ING
+3. Budget -> Process transactions
+
 
 ## ING csv format
 ```
